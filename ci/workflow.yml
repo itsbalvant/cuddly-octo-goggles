@@ -1,0 +1,12 @@
+name: CI
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        env:
+          CI_SECRET_PLACEHOLDER: ${{ secrets.CI_FAKE_SECRET }}
+        run: echo "Running tests"
